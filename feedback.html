@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Feedback</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Enviar Feedback</h1>
+
+<input type="text" id="assunto" placeholder="Assunto">
+
+<br><br>
+
+<textarea id="mensagemFeedback" placeholder="Digite seu feedback" rows="6"></textarea>
+
+<br><br>
+
+<button onclick="enviarFeedback()">
+Enviar
+</button>
+
+<br><br>
+
+<button onclick="window.location.href='tela-inicial.html'">
+Voltar
+</button>
+
+<p id="mensagem"></p>
+
+</div>
+
+<script>
+
+function enviarFeedback(){
+
+    let assunto = document.getElementById("assunto").value
+    let mensagem = document.getElementById("mensagemFeedback").value
+
+    if(assunto == "" || mensagem == ""){
+
+        document.getElementById("mensagem").innerText =
+        "Preencha todos os campos"
+    }
+
+    else{
+
+        document.getElementById("mensagem").innerText =
+        "Feedback enviado com sucesso"
+    }
+}
+
+</script>
+
+</body>
+</html>
+```html
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Feedback</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+<h1>Feedback</h1>
+
+<p>Página de feedback do sistema.</p>
+
+
+</div>
+
+</body>
+</html>
