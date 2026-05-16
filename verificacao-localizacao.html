@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<title>Localização</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Verificação de Localização</h1>
+
+<p>Status da localização:</p>
+
+<h2>Funcionário dentro da empresa</h2>
+
+<p>Última verificação:</p>
+
+<p id="horario"></p>
+
+<button onclick="window.location.href='tela-inicial.html'">
+Voltar
+</button>
+
+</div>
+
+<script>
+
+let agora = new Date()
+
+document.getElementById("horario").innerText =
+agora.toLocaleString()
+
+</script>
+
+</body>
+</html>

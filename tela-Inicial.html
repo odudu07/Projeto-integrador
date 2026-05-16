@@ -4,7 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tela Inicial</title>
+
+<title>Painel do Sistema</title>
 
 <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,59 +16,189 @@
 
 <h1>Menu do Sistema</h1>
 
-<button onclick="window.location.href='registro-ponto.html'">
+<p id="usuarioLogado"></p>
+
+<p id="cargoLogado"></p>
+
+<br>
+
+
+<button
+onclick="window.location.href='registro-ponto.html'">
+
 Registro de Ponto Pessoal
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='verificacao-localizacao.html'">
+
+<button
+onclick="window.location.href='verificacao-localizacao.html'">
+
 Verificação em/de Localização
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='registro-horas.html'">
+
+<button
+onclick="window.location.href='registro-horas.html'">
+
 Visualizar registro de horas pessoal
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='mural.html'">
+
+<button
+onclick="window.location.href='mural.html'">
+
 Visualização do Mural
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='alteracao-mural.html'">
+
+<button
+id="btnAlterarMural"
+onclick="window.location.href='alteracao-mural.html'">
+
 Alteração do mural
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='gerenciar-colaboradores.html'">
+
+<button
+id="btnFuncionarios"
+onclick="window.location.href='gerenciar-colaboradores.html'">
+
 Gerenciar colaboradores
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='escala.html'">
+
+<button
+onclick="window.location.href='escala.html'">
+
 Visualização de escala pessoal
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='feedback.html'">
+
+<button
+onclick="window.location.href='feedback.html'">
+
 Enviar Feedback
+
 </button>
 
 <br><br>
 
-<button onclick="window.location.href='login.html'">
+
+<button onclick="logout()">
+
 Sair
+
 </button>
 
 </div>
+
+
+
+<script>
+
+// ===============================
+// VERIFICA LOGIN
+// ===============================
+
+let usuario =
+localStorage.getItem("usuarioLogado")
+
+let cargo =
+localStorage.getItem("cargoUsuario")
+
+
+// Se não estiver logado
+
+if(usuario == null){
+
+    window.location.href = "login.html"
+}
+
+
+// Mostra dados do usuário
+
+document.getElementById("usuarioLogado")
+.innerText =
+
+"Usuário: " + usuario
+
+
+document.getElementById("cargoLogado")
+.innerText =
+
+"Cargo: " + cargo
+
+
+
+// ===============================
+// CONTROLE DE ACESSO
+// ===============================
+
+
+// FUNCIONÁRIO
+
+if(cargo == "Funcionario"){
+
+    document.getElementById("btnFuncionarios")
+    .style.display = "none"
+
+
+    document.getElementById("btnAlterarMural")
+    .style.display = "none"
+}
+
+
+
+// RH
+
+if(cargo == "RH"){
+
+    document.getElementById("btnAlterarMural")
+    .style.display = "none"
+}
+
+
+
+// CHEFE E ADMIN
+// acesso total
+
+
+
+// ===============================
+// LOGOUT
+// ===============================
+
+function logout(){
+
+    localStorage.removeItem("usuarioLogado")
+
+    localStorage.removeItem("cargoUsuario")
+
+    window.location.href = "login.html"
+}
+
+</script>
 
 </body>
 </html>

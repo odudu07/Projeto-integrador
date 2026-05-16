@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registro de Ponto</title>
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Registro de Ponto</h1>
+
+<p id="hora"></p>
+
+<button onclick="registrarEntrada()">
+Registrar Entrada
+</button>
+
+<br><br>
+
+<button onclick="registrarSaida()">
+Registrar Saída
+</button>
+
+<br><br>
+
+<p id="mensagem"></p>
+
+<button onclick="window.location.href='tela-inicial.html'">
+Voltar
+</button>
+
+</div>
+
+<script>
+
+function atualizarHora(){
+
+    let agora = new Date()
+
+    document.getElementById("hora").innerText =
+    agora.toLocaleTimeString()
+}
+
+setInterval(atualizarHora, 1000)
+
+
+function registrarEntrada(){
+
+    let agora = new Date()
+
+    document.getElementById("mensagem").innerText =
+    "Entrada registrada às " + agora.toLocaleTimeString()
+}
+
+
+function registrarSaida(){
+
+    let agora = new Date()
+
+    document.getElementById("mensagem").innerText =
+    "Saída registrada às " + agora.toLocaleTimeString()
+}
+
+</script>
+
+</body>
+</html>
